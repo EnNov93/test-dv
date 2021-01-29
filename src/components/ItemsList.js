@@ -1,46 +1,24 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
-import { Tab,Row,Col,Nav } from 'react-bootstrap'
-
+import OneItem from "./OneItem";
 const styles = {
 
 };
 
-function ItemsList({ data }) {
+function ItemsList({ headData, data }) {
+    console.log(headData)
     return (
         <>
-
-            <Tab.Container id="left-tabs-example" defaultActiveKey="first">
-                <Row>
-                    <Col sm={3}>
-                        <Nav variant="pills" className="flex-column">
-                            <Nav.Item>
-                                <Nav.Link eventKey="first">Tab 1</Nav.Link>
-                            </Nav.Item>
-                            <Nav.Item>
-                                <Nav.Link eventKey="second">Tab 2</Nav.Link>
-                            </Nav.Item>
-                        </Nav>
-                    </Col>
-                    <Col sm={9}>
-                        <Tab.Content>
-                            <Tab.Pane eventKey="first">
-                                <p>2</p>
-                            </Tab.Pane>
-                            <Tab.Pane eventKey="second">
-                                <p>2</p>
-                            </Tab.Pane>
-                        </Tab.Content>
-                    </Col>
-                </Row>
-            </Tab.Container>
-
+            <h2>Items List</h2>
+            {
+                headData.map(element => <OneItem key={element.id} item={element} data={data} />
+            )}
         </>
     )
 }
 
 ItemsList.propTypes = {
-    data: PropTypes.array.isRequired
+    headDdata: PropTypes.array
 }
 
 export default ItemsList

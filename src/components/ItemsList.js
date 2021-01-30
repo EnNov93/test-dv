@@ -11,14 +11,16 @@ const styles = {
 };
 
 function ItemsList({ headData, data }) {
-  console.log(data);
   return (
     <div style={styles.maimLeft}>
-      <h2>
-         Здания <Badge variant="secondary">{headData.length}</Badge>
-      </h2>
       {headData.map((element) => (
-        <OneItem hFlag={true} key={element.id} active item={element} data={data} />
+        <OneItem
+          hFlag={true}
+          key={element.id}
+          active
+          item={element}
+          data={data}
+        />
       ))}
     </div>
   );
